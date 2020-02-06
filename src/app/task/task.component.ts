@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Task } from '../task';
+import { Task } from './task';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -20,13 +20,13 @@ export class TaskComponent implements OnInit {
   ngOnInit() {
   }
 
-   addTask(name: string, description: string): void {
-     // this.taskToDo.push(this.Taskform.patchValue({
-      this.taskForm.setValue({name: `${name}`});
-      this.taskForm.setValue({description: `${description}`});
-      this.taskToDo.push(this.taskForm.value);
-     // }));
-     // console.log(this.taskToDo);
+   addTask() {
+      const name = this.taskForm.get('name').value;
+      const description = this.taskForm.get('description').value;
+      const task = new Task(1, name, description);
+      this.taskToDo.push(task);
+
+      this.taskForm.reset();
    }
 
 
