@@ -13,7 +13,7 @@ export class TaskComponent implements OnInit {
     description: new FormControl(''),
    });
 
-  taskToDo: Task[];
+  taskToDo: Task[] = [];
 
   constructor() { }
 
@@ -25,7 +25,7 @@ export class TaskComponent implements OnInit {
       const description = this.taskForm.get('description').value;
       const task = new Task(1, name, description);
       this.taskToDo.push(task);
-
+      console.log (this.taskToDo);
       this.taskForm.reset();
    }
 
