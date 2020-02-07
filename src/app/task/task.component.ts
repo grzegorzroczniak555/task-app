@@ -1,3 +1,4 @@
+import { TaskService } from './../task.service';
 import { Component, OnInit } from '@angular/core';
 import { Task } from './task';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -15,19 +16,19 @@ export class TaskComponent implements OnInit {
 
   taskToDo: Task[] = [];
 
-  constructor() { }
+  constructor(private taskService: TaskService) { }
 
   ngOnInit() {
   }
 
    addTask() {
-      const name = this.taskForm.get('name').value;
-      const description = this.taskForm.get('description').value;
-      const task = new Task(1, name, description);
-      this.taskToDo.push(task);
-      console.log (this.taskToDo);
-      this.taskForm.reset();
-   }
+    const name = this.taskForm.get('name').value;
+    const description = this.taskForm.get('description').value;
+    const task = new Task(1, name, description);
+    this.taskToDo.push(task);
+    console.log (this.taskToDo);
+    this.taskForm.reset();
+  }
 
 
 
