@@ -14,7 +14,7 @@ export class TaskComponent implements OnInit {
     description: new FormControl(''),
    });
 
-  taskInProgress: Task[] = [];
+  tasks: Task[] = [];
 
   constructor(private taskService: TaskService) { }
 
@@ -25,9 +25,20 @@ export class TaskComponent implements OnInit {
     const name = this.taskForm.get('name').value;
     const description = this.taskForm.get('description').value;
     const task = new Task(1, name, description);
-    this.taskInProgress.push(task);
-    console.log (this.taskInProgress);
+    this.tasks.push(task);
     this.taskForm.reset();
+  }
+
+  getTasks(): Task[] {
+    return this.tasks;
+  }
+
+  getInProgressTasks(): Task[] {
+    return this.tasks.filter(t => t.status === 0);
+  }
+
+  getDoneTasks() {
+    return this.tasks.filter(t => t.status === 1);
   }
 
 
