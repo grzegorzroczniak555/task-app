@@ -8,25 +8,26 @@ import { Task } from './task/task';
 })
 export class TaskService {
 
+  private tasksUrl = 'heroes';
 
   constructor(
     private http: HttpClient) { }
 
 
 getTasks(): Observable<Task[]> {
-  return this.http.get<Task[]>(URL);
+  return this.http.get<Task[]>(this.tasksUrl);
 }
 
 getInProgressTasks(): Observable<Task[]> {
-  return this.http.get<Task[]>(URL);
+  return this.http.get<Task[]>(this.tasksUrl);
 }
 
 getDoneTasks(): Observable<Task[]> {
-  return this.http.get<Task[]>(URL);
+  return this.http.get<Task[]>(this.tasksUrl);
 }
 
 addTask(task: Task): Observable<Task> {
-  return this.http.post<Task>(URL, task);
+  return this.http.post<Task>(this.tasksUrl, task);
 }
 
 }

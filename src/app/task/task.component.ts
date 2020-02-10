@@ -19,6 +19,7 @@ export class TaskComponent implements OnInit {
   constructor(private taskService: TaskService) { }
 
   ngOnInit() {
+    this.getTasks();
   }
 
    addTask() {
@@ -29,8 +30,14 @@ export class TaskComponent implements OnInit {
     this.taskForm.reset();
   }
 
-  getTasks(): Task[] {
-    return this.tasks;
+  // getTasks(): Task[] {
+  //   return this.tasks;
+  // }
+  getTasks(): void {
+    this.taskService.getTasks()
+      .subscribe(tasks => {
+        this.tasks = tasks;
+      });
   }
 
   getInProgressTasks(): Task[] {
