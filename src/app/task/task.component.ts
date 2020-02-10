@@ -9,43 +9,30 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./task.component.scss']
 })
 export class TaskComponent implements OnInit {
-   taskForm = new FormGroup({
+  taskForm = new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
-   });
+  });
 
   tasks: Task[] = [];
 
   constructor(private taskService: TaskService) { }
 
   ngOnInit() {
-    this.getTasks();
   }
 
-   addTask() {
+  addTask() {
     const name = this.taskForm.get('name').value;
     const description = this.taskForm.get('description').value;
     const task = new Task(1, name, description);
-    this.tasks.push(task);
-    this.taskForm.reset();
-  }
-
-  // getTasks(): Task[] {
-  //   return this.tasks;
-  // }
-  getTasks(): void {
-    this.taskService.getTasks()
-      .subscribe(tasks => {
-        this.tasks = tasks;
+    this.taskService.addTask(task)
+      .subscribe(t => {
+        this.tasks.push(t);
+        console.log('Adding works!');
+        this.taskForm.reset();
+      }, err => {
+        console.log(err);
       });
-  }
-
-  getInProgressTasks(): Task[] {
-    return this.tasks.filter(t => t.status === 0);
-  }
-
-  getDoneTasks() {
-    return this.tasks.filter(t => t.status === 1);
   }
 
 
