@@ -8,26 +8,17 @@ import { Task } from './task/task';
 })
 export class TaskService {
 
-  private tasksUrl = 'api/tasks';
+  tasks: Task[] = [];
 
-  constructor(
-    private http: HttpClient) { }
+  constructor() { }
 
 
-  getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.tasksUrl);
-  }
+  // getTasks(): Observable<Task[]> {
+  // }
 
-  getInProgressTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.tasksUrl);
-  }
-
-  getDoneTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.tasksUrl);
-  }
-
-  addTask(task: Task): Observable<Task> {
-    return this.http.post<Task>(this.tasksUrl, task);
+  addTask(task: Task): Observable<Task[]> {
+    this.tasks.push(task);
+    return of (this.tasks);
   }
 
 }
