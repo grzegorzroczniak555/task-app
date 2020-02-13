@@ -20,16 +20,20 @@ export class TaskComponent implements OnInit {
 
   ngOnInit() { }
 
+  getId(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
   addTask() {
     const name = this.taskForm.get('name').value;
     const description = this.taskForm.get('description').value;
-    const task = new Task(1, name, description);
+    const task = new Task(this.getId(1,500), name, description);
     this.taskService.addTask(task)
       .subscribe(tasks => {
         this.tasks = tasks;
       });
-    console.log('Adding works!');
-    console.log(this.tasks);
     this.taskForm.reset();
       }
   }

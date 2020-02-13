@@ -1,7 +1,4 @@
-enum Status {
-    IN_PROGRESS,
-    DONE,
-}
+import { Status } from './status'
 
 export class Task {
     status: Status;
