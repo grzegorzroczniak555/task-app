@@ -7,20 +7,24 @@ import { Task } from './task/task';
 })
 export class TaskService {
 
-  tasks: Task[] = [];
+  private tasks: Task[] = [];
 
   constructor() { }
 
-  getId(min, max) {
+  private getId(min: number, max: number): number {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  addTask(task: Task): Observable<Task[]> {
+  addTask(task: Task): Observable<Task> {
     task.id = this.getId(1, 500);
     this.tasks.push(task);
-    return of (this.tasks);
+    return of(task);
+  }
+
+  getTasks(): Observable<Task[]> {
+    return of(this.tasks);
   }
 
 }
