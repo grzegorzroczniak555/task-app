@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Task } from './task/task';
+import { Status } from './task/status';
 
 @Injectable({
   providedIn: 'root'
@@ -24,12 +25,12 @@ export class TaskService {
   }
 
   getTasksInProgress(): Observable<Task[]> {
-    this.tasks = this.tasks.filter(t => t.status !== 1);
-    return of(this.tasks);
+    const taskInProgress = this.tasks.filter(t => t.status !== Status.DONE);
+    return of(taskInProgress);
   }
 
   finishTask(task: Task): Observable<Task> {
-    task.status = 1;
+    task.status = Status.DONE;
     return of(task);
   }
 
