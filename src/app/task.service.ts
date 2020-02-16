@@ -23,8 +23,14 @@ export class TaskService {
     return of(task);
   }
 
-  getTasks(): Observable<Task[]> {
+  getTasksInProgress(): Observable<Task[]> {
+    this.tasks = this.tasks.filter(t => t.status !== 1);
     return of(this.tasks);
+  }
+
+  finishTask(task: Task): Observable<Task> {
+    task.status = 1;
+    return of(task);
   }
 
 }
