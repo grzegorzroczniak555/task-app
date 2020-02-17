@@ -19,11 +19,11 @@ export class TaskComponent implements OnInit {
   constructor(public taskService: TaskService) { }
 
   ngOnInit() {
-    this.getTasks();
+    this.getTasksInProgress();
   }
 
-  getTasks() {
-    this.taskService.getTasks()
+  getTasksInProgress() {
+    this.taskService.getTasksInProgress()
       .subscribe(tasks => {
         this.tasks = tasks;
       });
@@ -35,9 +35,16 @@ export class TaskComponent implements OnInit {
     const task = new Task(name, description);
     this.taskService.addTask(task)
       .subscribe(() => {
-        this.getTasks();
+        this.getTasksInProgress();
       });
     this.taskForm.reset();
+  }
+
+  finishTask(task: Task) {
+    this.taskService.finishTask(task)
+      .subscribe(() => {
+        this.getTasksInProgress();
+      });
   }
 }
 

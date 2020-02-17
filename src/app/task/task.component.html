@@ -2,21 +2,22 @@
 
 <div>
 
-    <form [formGroup]="taskForm" (ngSubmit)="addTask()">
-        <label> Name:
-          <input type="text" formControlName="name" >
-        </label>
-        <label> Description:
-          <input type="text" formControlName="description" >
-        </label>
+  <form [formGroup]="taskForm" (ngSubmit)="addTask()">
+    <label> Name:
+      <input type="text" formControlName="name">
+    </label>
+    <label> Description:
+      <input type="text" formControlName="description">
+    </label>
 
-        <button type="submit">Add Task</button>
-    </form>
+    <button type="submit">Add Task</button>
+  </form>
 
-    <ul>
-      <li *ngFor="let task of tasks">
-          <span><b>Name of task: </b>{{task.name}} </span><b>Description: </b>{{task.description}}
-      </li>
+  <ul>
+    <li *ngFor="let task of tasks">
+      <span><b>Name of task: </b>{{task.name}} </span><b>Description: </b>{{task.description}}
+      <button class="finish-task" title="mark a task as finished" (click)="finishTask(task)">Done</button>
+    </li>
   </ul>
 
 </div>
