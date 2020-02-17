@@ -4,8 +4,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {path: 'tasks', component: TaskComponent},
-  {path: '', redirectTo: '/tasks', pathMatch: 'full'}
+  {
+    path: 'tasks', component: TaskComponent, children: [{
+      path: 'done', component: DoneTasksComponent
+    }]
+  },
+  { path: '', redirectTo: '/tasks', pathMatch: 'full' }
 ];
 
 @NgModule({
