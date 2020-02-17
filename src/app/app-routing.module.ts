@@ -1,3 +1,4 @@
+import { DoneTasksComponent } from './task/done-tasks/done-tasks.component';
 import { TaskComponent } from './task/task.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';

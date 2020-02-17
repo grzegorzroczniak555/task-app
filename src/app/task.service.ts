@@ -29,6 +29,11 @@ export class TaskService {
     return of(taskInProgress);
   }
 
+  getDoneTasks(): Observable<Task[]> {
+    const doneTasks = this.tasks.filter(t => t.status !== Status.IN_PROGRESS);
+    return of(doneTasks);
+  }
+
   finishTask(task: Task): Observable<Task> {
     task.status = Status.DONE;
     return of(task);
