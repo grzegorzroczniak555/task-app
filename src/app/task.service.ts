@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { Task } from './task/task';
 import { Status } from './task/status';
 
@@ -9,6 +9,7 @@ import { Status } from './task/status';
 export class TaskService {
 
   private tasks: Task[] = [];
+  public doneTasksSubject = new Subject<void>();
 
   constructor() { }
 
@@ -29,10 +30,16 @@ export class TaskService {
     return of(tasksInProgress);
   }
 
+  getDoneTasks(): Observable<Task[]> {
+    const doneTasks = this.tasks.filter(t => t.status === Status.DONE);
+    return of(doneTasks);
+  }
+
   finishTask(task: Task): Observable<Task> {
     const currentTask = this.tasks.filter(t => t.id === task.id)[0];
     if (!!currentTask) {
       currentTask.status = Status.DONE;
+      this.doneTasksSubject.next();
     }
     return of(currentTask);
   }
