@@ -6,6 +6,17 @@ button{
     padding: 0px 0px 0px 0px;
 }
 
+.finish-task {
+        padding: 5px 5px 5px 5px;
+        button {
+            p:hover {
+                -webkit-transition: .4s;
+                transition: .4s;
+                color: orange;
+            }
+        }
+    }
+
 p:hover {
     -webkit-transition: .4s;
     transition: .4s;
@@ -13,6 +24,6 @@ p:hover {
 }
 
 .list-group-item {
-    display: inline-block;
-    border-color: darkblue;
+    border-color: black;
+    width: max-content;
 }
