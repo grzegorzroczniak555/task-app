@@ -1,20 +1,21 @@
 <h2>Task To Do: </h2>
 
 <div>
-
     <form [formGroup]="taskForm" (ngSubmit)="addTask()">
-        <label> Name:
-      <input type="text" formControlName="name">
-    </label>
+        <label for="form1" class =''> Name:
+            <input mdbInput type="text" id="form1" class="form-control" formControlName="name">
+        </label>
         <label> Description:
-      <input type="text" formControlName="description">
-    </label>
+            <input mdbInput type="text" id="form1" class="form-control" formControlName="description">
+        </label>
 
-        <button type="submit" mdbBtn mdbWavesEffect color="primary">Add Task</button>
+
+        <button type="submit" mdbBtn mdbWavesEffect color="primary"><p>Add Task</p></button>
     </form>
 
+
     <ul>
-        <li *ngFor="let task of tasks">
+        <li *ngFor="let task of tasks" class="list-group-item">
             <span><b>Name of task: </b>{{task.name}} </span><b>Description: </b>{{task.description}}
             <button class="finish-task" title="mark a task as finished" (click)="finishTask(task)">Done</button>
         </li>

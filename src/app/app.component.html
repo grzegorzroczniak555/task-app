@@ -1,5 +1,9 @@
-<h1>{{title}}</h1>
+<span class="tasks">
+   <a><img src = "task/task.jpg" alt="" height="20" weight="20"></a> 
+    <h1 class="font-weight-bold">{{title}}</h1>
+</span>
 <nav>
-    <a [routerLink]="['tasks','done']" routerLinkActive="active">Done Tasks</a>
+        <a [routerLink]="['tasks','done']" routerLinkActive="active" mdbBtn color="green"
+            class="text-warning stretched-link" style="position: relative">Done Tasks</a>
 </nav>
 <router-outlet></router-outlet>

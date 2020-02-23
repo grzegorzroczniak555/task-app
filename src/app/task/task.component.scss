@@ -1,0 +1,18 @@
+* {
+    margin: 10px 10px 10px 10px;
+}
+
+button{
+    padding: 0px 0px 0px 0px;
+}
+
+p:hover {
+    -webkit-transition: .4s;
+    transition: .4s;
+    color: #ff828d;
+}
+
+.list-group-item {
+    display: inline-block;
+    border-color: darkblue;
+}
