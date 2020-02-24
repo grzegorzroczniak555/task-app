@@ -2,25 +2,24 @@
     margin: 10px 10px 10px 10px;
 }
 
-button{
+h2 {
+    color: darkblue;
+}
+
+button {
     padding: 0px 0px 0px 0px;
 }
 
-.finish-task {
-        padding: 5px 5px 5px 5px;
-        button {
-            p:hover {
-                -webkit-transition: .4s;
-                transition: .4s;
-                color: orange;
-            }
-        }
-    }
-
-p:hover {
+.add-task:hover {
     -webkit-transition: .4s;
     transition: .4s;
-    color: #ff828d;
+    color: aqua;
+}
+
+.finish-task-text:hover {
+    -webkit-transition: .4s;
+    transition: .4s;
+    color: orange;
 }
 
 .list-group-item {

@@ -10,8 +10,8 @@
         </label>
 
 
-        <button type="submit" mdbBtn mdbWavesEffect color="primary">
-            <p>Add Task</p>
+        <button type="submit" mdbBtn mdbWavesEffect color="primary" title="Adding a task">
+            <p class="add-task">Add Task</p>
         </button>
     </form>
 
@@ -19,8 +19,7 @@
     <ul>
         <li *ngFor="let task of tasks" class="list-group-item">
             <span><b>Name of task: </b>{{task.name}} </span><b>Description: </b>{{task.description}}
-            <button class="finish-task" title="Mark a task as finished" (click)="finishTask(task)" mdbBtn
-                mdbWavesEffect color="green">Done</button>
+            <button class="finish-task-button" title="Mark a task as finished" (click)="finishTask(task)" mdbBtn mdbWavesEffect color="green"><p class ="finish-task-text"> Done</p></button>
         </li>
     </ul>
 
