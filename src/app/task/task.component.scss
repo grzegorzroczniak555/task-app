@@ -1,16 +1,9 @@
-* {
-    margin: 10px 10px 10px 10px;
-}
-
-h2 {
+.task-to-do-title {
     color: darkblue;
+    margin: 10px;
 }
 
-button {
-    padding: 0px 0px 0px 0px;
-}
-
-.add-task:hover {
+.add-task-text:hover {
     -webkit-transition: .4s;
     transition: .4s;
     color: aqua;
@@ -22,7 +15,19 @@ button {
     color: orange;
 }
 
+.add-task-button {
+    padding: 10px;
+}
+
+.finish-task-button {
+    padding: 3px;
+}
+
 .list-group-item {
     border-color: black;
     width: max-content;
+}
+
+.forms {
+    margin: 10px;
 }

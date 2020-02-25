@@ -1,12 +1,14 @@
-<h2> Done Tasks </h2>
+<h2 class="done-task-title"> Done Tasks </h2>
 
 <div>
 
     <ul>
-        <li *ngFor="let task of doneTasks" class="list-group-item">
-            <mdb-icon fas icon="check-circle"></mdb-icon>
-            <span><b> Name of task: </b>{{task.name}} </span><b>Description: </b>{{task.description}}
-        </li>
+        <div class="w-100 p-3">
+            <li *ngFor="let task of doneTasks" class="list-group-item w-100">
+                <mdb-icon fas icon="check-circle"></mdb-icon>
+                <span><b> Name of task: </b>{{task.name}} </span><b>Description: </b>{{task.description}}
+            </li>
+        </div>
     </ul>
 
 </div>

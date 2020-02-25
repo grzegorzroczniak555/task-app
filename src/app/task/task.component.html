@@ -1,17 +1,17 @@
-<h2>Task To Do: </h2>
+<h2 class="task-to-do-title">Task To Do: </h2>
 
 <div>
-    <form [formGroup]="taskForm" (ngSubmit)="addTask()">
-        <label for="form1" class=''> Name:
-            <input mdbInput type="text" id="form1" class="form-control" formControlName="name">
+    <form [formGroup]="taskForm" (ngSubmit)="addTask()" class="forms">
+        <label for="form"> Name:
+            <input mdbInput type="text" id="task-form" class="form-control" formControlName="name">
         </label>
         <label> Description:
-            <input mdbInput type="text" id="form1" class="form-control" formControlName="description">
+            <input mdbInput type="text" id="task-description-form" class="form-control" formControlName="description">
         </label>
 
 
-        <button type="submit" mdbBtn mdbWavesEffect color="primary" title="Adding a task">
-            <p class="add-task">Add Task</p>
+        <button class="add-task-button" type="submit" mdbBtn mdbWavesEffect color="primary" title="Adding a task">
+            <span class="add-task-text">Add Task</span>
         </button>
     </form>
 
@@ -19,7 +19,7 @@
     <ul>
         <li *ngFor="let task of tasks" class="list-group-item">
             <span><b>Name of task: </b>{{task.name}} </span><b>Description: </b>{{task.description}}
-            <button class="finish-task-button" title="Mark a task as finished" (click)="finishTask(task)" mdbBtn mdbWavesEffect color="green"><p class ="finish-task-text"> Done</p></button>
+            <button class="finish-task-button" title="Mark a task as finished" (click)="finishTask(task)" mdbBtn mdbWavesEffect color="green"><span class ="finish-task-text"> Done</span></button>
         </li>
     </ul>
 
