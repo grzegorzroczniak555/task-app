@@ -1,0 +1,33 @@
+.task-to-do-title {
+    color: darkblue;
+    margin: 10px;
+}
+
+.add-task-text:hover {
+    -webkit-transition: .4s;
+    transition: .4s;
+    color: aqua;
+}
+
+.finish-task-text:hover {
+    -webkit-transition: .4s;
+    transition: .4s;
+    color: orange;
+}
+
+.add-task-button {
+    padding: 10px;
+}
+
+.finish-task-button {
+    padding: 3px;
+}
+
+.list-group-item {
+    border-color: black;
+    width: max-content;
+}
+
+.forms {
+    margin: 10px;
+}

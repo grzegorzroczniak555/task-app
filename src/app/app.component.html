@@ -1,5 +1,8 @@
-<h1>{{title}}</h1>
-<nav>
-    <a [routerLink]="['tasks','done']" routerLinkActive="active">Done Tasks</a>
-</nav>
+<div class="m-1">
+    <h1 class="font-weight-bold">{{title}}</h1>
+    <img src="assets/task.jpg" class="d-flex ml-4" height="100" width="100">
+    <nav>
+        <a [routerLink]="['tasks','done']" routerLinkActive="active" mdbBtn color="green" class="text-warning stretched-link" style="position: relative" title="List of done tasks">Done Tasks</a>
+    </nav>
+</div>
 <router-outlet></router-outlet>
