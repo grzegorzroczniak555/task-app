@@ -2,10 +2,10 @@
 
 <div>
     <form [formGroup]="taskForm" (ngSubmit)="addTask()" class="forms">
-        <label for="form"> Name:
-            <input mdbInput type="text" id="task-form" class="form-control" formControlName="name">
+        <label for="form" class="mr-3"> Name:
+            <input mdbInput type="text" id="task-form" class="form-control d-flex mr-3" formControlName="name">
         </label>
-        <label> Description:
+        <label class="mr-3"> Description:
             <input mdbInput type="text" id="task-description-form" class="form-control" formControlName="description">
         </label>
 
