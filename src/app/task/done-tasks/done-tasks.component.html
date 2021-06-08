@@ -1,7 +1,6 @@
 <h2 class="done-task-title"> Done Tasks </h2>
 
 <div>
-
     <ul>
         <div class="p-3">
             <li *ngFor="let task of doneTasks" class="list-group-item mt-2">
@@ -10,5 +9,7 @@
             </li>
         </div>
     </ul>
-
+    <div class="p-3" *ngIf="router === '/tasks/done'">
+        <a [routerLink]="['/tasks']" routerLinkActive="active" mdbBtn color="red" class="text-warning stretched-link" style="position: relative" title="List of done tasks">Add tasks</a>
+    </div>
 </div>
