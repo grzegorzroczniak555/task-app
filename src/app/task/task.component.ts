@@ -33,11 +33,15 @@ export class TaskComponent implements OnInit {
     const name = this.taskForm.get('name').value;
     const description = this.taskForm.get('description').value;
     const task = new Task(name, description);
-    this.taskService.addTask(task)
-      .subscribe(() => {
-        this.getTasksInProgress();
-      });
-    this.taskForm.reset();
+    if (name && description) {
+      this.taskService.addTask(task)
+        .subscribe(() => {
+          this.getTasksInProgress();
+        });
+      this.taskForm.reset();
+    } else {
+      alert('Write a name and description!')
+    }
   }
 
   finishTask(task: Task) {

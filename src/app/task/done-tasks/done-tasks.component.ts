@@ -1,6 +1,7 @@
 import { TaskService } from './../../task.service';
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../task';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-done-tasks',
@@ -10,8 +11,12 @@ import { Task } from '../task';
 export class DoneTasksComponent implements OnInit {
 
   doneTasks: Task[] = [];
+  router: string;
 
-  constructor(public taskService: TaskService) { }
+  constructor(public taskService: TaskService,
+              private _router: Router) {
+              this.router = _router.url;
+  }
 
   ngOnInit() {
     this.getDoneTasks();
